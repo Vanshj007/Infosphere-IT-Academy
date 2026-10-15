@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaipur IT College | B.Voc Programs in Jaipur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::selection {
+            background: rgba(132,204,22,0.3);
+            color: #d9f99d;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes gridScroll {
+            from { background-position: 0 0; }
+            to { background-position: 0 4rem; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn { animation: fadeIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards; opacity: 0; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+        .delay-700 { animation-delay: 700ms; }
+        .shimmer-btn {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            background-size: 200% 100%;
+        }
+        .shimmer-btn:hover { animation: shimmer 1.5s infinite; }
+        .tron-grid {
+            background-image:
+                linear-gradient(rgba(163,230,53,0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(163,230,53,0.07) 1px, transparent 1px);
+            background-size: 4rem 4rem;
+            animation: gridScroll 4s linear infinite;
+        }
+        .scanlines {
+            background: linear-gradient(to bottom,
+                rgba(255,255,255,0), rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+            background-size: 100% 4px;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #d9f99d, #dcfce7, #d9f99d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover { transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+        .card-hover:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 0 40px -10px rgba(163,230,53,0.15);
+        }
+        .nav-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .scroll-indicator { animation: float 2s ease-in-out infinite; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+        /* Mobile menu */
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .mobile-menu.open { max-height: 500px; }
+        /* Toast */
+        .toast {
+            transform: translateX(100%); opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+        }
+        .toast.show { transform: translateX(0); opacity: 1; }
+        /* Tabs */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease forwards; }
+        /* Counter animation */
+        .counter { display: inline-block; }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-neutral-200 font-body antialiased overflow-x-hidden">
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast fixed top-20 right-4 z-[100] bg-neutral-800/90 border border-lime-500/30 rounded-xl px-5 py-3 flex items-center gap-3 shadow-2xl">
+        <span class="iconify text-lime-400 text-xl" data-icon="lucide:check-circle"></span>
+        <span id="toastMsg" class="text-sm text-neutral-200">Message sent successfully!</span>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center transition-all duration-300" style="background: rgba(10,10,10,0.8);">
+        <div class="max-w-[80rem] mx-auto w-full px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-lg bg-lime-400/10 border border-lime-400/30 flex items-center justify-center group-hover:bg-lime-400/20 transition-colors">
+                    <span class="iconify text-lime-400 text-lg" data-icon="lucide:graduation-cap"></span>
+                </div>
+                <div>
+                    <span class="font-heading font-semibold text-neutral-100 text-sm tracking-tight">Jaipur IT College</span>
+                    <span class="hidden sm:block text-[10px] text-neutral-500 tracking-wide uppercase">B.Voc Programs</span>
+                </div>
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm text-neutral-400 hover:text-lime-400 transition-colors duration-150">About</a>
+                <a href="#courses" class="text-sm text-neutral-400 hover:text-lime-400 transition-colors duration-150">Courses</a>
+                <a href="#placements" class="text-sm text-neutral-400 hover:text-lime-400 transition-colors duration-150">Placements</a>
+                <a href="#testimonials" class="text-sm text-neutral-400 hover:text-lime-400 transition-colors duration-150">Testimonials</a>
+                <a href="#contact" class="text-sm text-neutral-400 hover:text-lime-400 transition-colors duration-150">Contact</a>
+            </div>
+            <!-- CTA + Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-neutral-100 text-neutral-900 text-sm font-medium px-5 py-2.5 rounded-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all duration-300">
+                    Enroll Now
+                    <span class="iconify text-sm" data-icon="lucide:arrow-right"></span>
+                </a>
+                <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-neutral-400 hover:text-lime-400 hover:border-lime-400/30 transition-all">
+                    <span class="iconify text-xl" data-icon="lucide:menu" id="menuIcon"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu absolute top-16 left-0 right-0 bg-neutral-900/95 nav-blur border-b border-white/5 md:hidden">
+            <div class="px-6 py-4 flex flex-col gap-3">
+                <a href="#about" class="text-sm text-neutral-400 hover:text-lime-400 py-2 transition-colors" onclick="closeMobile()">About</a>
+                <a href="#courses" class="text-sm text-neutral-400 hover:text-lime-400 py-2 transition-colors" onclick="closeMobile()">Courses</a>
+                <a href="#placements" class="text-sm text-neutral-400 hover:text-lime-400 py-2 transition-colors" onclick="closeMobile()">Placements</a>
+                <a href="#testimonials" class="text-sm text-neutral-400 hover:text-lime-400 py-2 transition-colors" onclick="closeMobile()">Testimonials</a>
+                <a href="#contact" class="text-sm text-neutral-400 hover:text-lime-400 py-2 transition-colors" onclick="closeMobile()">Contact</a>
+                <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-neutral-100 text-neutral-900 text-sm font-medium px-5 py-2.5 rounded-lg mt-2" onclick="closeMobile()">Enroll Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[700px] flex items-center overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 tron-grid opacity-30"></div>
+        <div class="absolute top-1/4 -left-40 w-[800px] h-[500px] bg-lime-900/20 rounded-full blur-[120px] mix-blend-screen"></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-green-900/10 rounded-full blur-[100px] mix-blend-screen"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]"></div>
+        <!-- Big background text -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-heading font-bold text-[20vw] text-white/[0.03] whitespace-nowrap select-none pointer-events-none">B.VOC</div>
+        <!-- Scanlines -->
+        <div class="absolute inset-0 scanlines"></div>
+
+        <div class="relative max-w-[80rem] mx-auto w-full px-6 pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Content (7 cols) -->
+            <div class="lg:col-span-7 space-y-8">
+                <!-- Badge -->
+                <div class="animate-fadeIn inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-lime-400 relative">
+                        <span class="absolute inset-0 rounded-full bg-lime-400 animate-ping"></span>
+                    </span>
+                    <span class="text-xs font-medium text-neutral-400 tracking-wide">Admissions Open 2025-26</span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="animate-fadeIn delay-100 font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tighter">
+                    <span class="text-neutral-100">Build Your</span><br>
+                    <span class="gradient-text">IT Career</span><br>
+                    <span class="text-neutral-100">with B.Voc</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="animate-fadeIn delay-200 text-neutral-400 text-base sm:text-lg leading-relaxed max-w-xl">
+                    Jaipur IT College offers industry-aligned <strong class="text-neutral-300">Bachelor of Vocation (B.Voc)</strong> programs designed to make you job-ready from day one. Get hands-on training, real-world projects, and guaranteed placement support.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="animate-fadeIn delay-300 flex flex-wrap gap-4">
+                    <a href="#courses" class="group inline-flex items-center gap-2 bg-neutral-100 text-neutral-900 text-sm font-medium px-7 py-3.5 rounded-xl hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all duration-300">
+                        Explore Courses
+                        <span class="iconify text-sm group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+                    </a>
+                    <a href="tel:9166720175" class="group inline-flex items-center gap-2 border border-white/10 bg-white/5 text-neutral-200 text-sm font-medium px-7 py-3.5 rounded-xl hover:border-lime-400/30 hover:bg-lime-400/5 transition-all duration-300">
+                        <span class="iconify text-lime-400" data-icon="lucide:phone"></span>
+                        Call: 9166720175
+                    </a>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="animate-fadeIn delay-400 flex flex-wrap gap-8 pt-4">
+                    <div>
+                        <div class="font-heading font-bold text-2xl text-neutral-100 counter" data-target="500">0</div>
+                        <div class="text-xs text-neutral-500 mt-1">Students Placed</div>
+                    </div>
+                    <div class="w-px bg-white/10"></div>
+                    <div>
+                        <div class="font-heading font-bold text-2xl text-neutral-100 counter" data-target="50">0</div>
+                        <div class="text-xs text-neutral-500 mt-1">Recruiting Companies</div>
+                    </div>
+                    <div class="w-px bg-white/10"></div>
+                    <div>
+                        <div class="font-heading font-bold text-2xl text-neutral-100 counter" data-target="95">0</div>
+                        <div class="text-xs text-neutral-500 mt-1">% Placement Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual (5 cols) -->
+            <div class="lg:col-span-5 relative animate-fadeIn delay-500">
+                <div class="relative">
+                    <!-- Glow ring -->
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-lime-500/20 to-green-500/5 blur-2xl scale-105"></div>
+                    <!-- Card -->
+                    <div class="relative bg-neutral-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                        <!-- Window dots -->
+                        <div class="flex items-center gap-2 px-5 py-3 border-b border-white/5">
+                            <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+                            <span class="ml-3 text-xs text-neutral-600 font-mono">jaipur_it_college.dashboard</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-lime-400/5 border border-lime-400/10">
+                                <div class="w-10 h-10 rounded-lg bg-lime-400/10 flex items-center justify-center">
+                                    <span class="iconify text-lime-400 text-xl" data-icon="lucide:code-2"></span>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-neutral-200">B.Voc Software Development</div>
+                                    <div class="text-xs text-neutral-500">3 Years • 6 Semesters</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                <div class="w-10 h-10 rounded-lg bg-blue-400/10 flex items-center justify-center">
+                                    <span class="iconify text-blue-400 text-xl" data-icon="lucide:database"></span>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-neutral-200">B.Voc Data Science</div>
+                                    <div class="text-xs text-neutral-500">3 Years • 6 Semesters</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                <div class="w-10 h-10 rounded-lg bg-purple-400/10 flex items-center justify-center">
+                                    <span class="iconify text-purple-400 text-xl" data-icon="lucide:shield-check"></span>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-neutral-200">B.Voc Cyber Security</div>
+                                    <div class="text-xs text-neutral-500">3 Years • 6 Semesters</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                <div class="w-10 h-10 rounded-lg bg-orange-400/10 flex items-center justify-center">
+                                    <span class="iconify text-orange-400 text-xl" data-icon="lucide:monitor-smartphone"></span>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-neutral-200">B.Voc Web & Mobile Dev</div>
+                                    <div class="text-xs text-neutral-500">3 Years • 6 Semesters</div>
+                                </div>
+                            </div>
+                            <!-- Progress bar -->
+                            <div class="pt-2">
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="text-neutral-500">Seats Filling</span>
+                                    <span class="text-lime-400 font-medium">78%</span>
+                                </div>
+                                <div class="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-lime-500 to-green-400 rounded-full" style="width: 78%; transition: width 1.5s ease;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-4 -left-4 animate-float bg-neutral-800/90 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-sm shadow-xl">
+                        <div class="flex items-center gap-2">
+                            <span class="iconify text-lime-400 text-lg" data-icon="lucide:badge-check"></span>
+                            <div>
+                                <div class="text-xs font-medium text-neutral-200">UGC Recognized</div>
+                                <div class="text-[10px] text-neutral-500">NAAC Accredited</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+            <div class="w-6 h-10 rounded-full border border-white/10 flex items-start justify-center p-1.5">
+                <div class="w-1.5 h-3 rounded-full bg-lime-400/50 animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BY / MARQUEE -->
+    <section class="relative border-y border-white/5 py-6 overflow-hidden">
+        <div class="max-w-[80rem] mx-auto px-6">
+            <div class="flex items-center gap-8 overflow-hidden">
+                <span class="text-xs text-neutral-600 uppercase tracking-widest whitespace-nowrap shrink-0">Affiliated With</span>
+                <div class="flex items-center gap-12 animate-marquee whitespace-nowrap">
+                    <span class="text-neutral-600 text-sm font-medium">University of Rajasthan</span>
+                    <span class="text-neutral-700">•</span>
+                    <span class="text-neutral-600 text-sm font-medium">UGC Approved</span>
+                    <span class="text-neutral-700">•</span>
+                    <span class="text-neutral-600 text-sm font-medium">NSQF Aligned</span>
+                    <span class="text-neutral-700">•</span>
+                    <span class="text-neutral-600 text-sm font-medium">AICTE Guidelines</span>
+                    <span class="text-neutral-700">•</span>
+                    <span class="text-neutral-600 text-sm font-medium">Skill India Mission</span>
+                    <span class="text-neutral-700">•</span>
+                    <span class="text-neutral-600 text-sm font-medium">Government of Rajasthan</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="relative py-24">
+        <div class="max-w-[80rem] mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Image Grid -->
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="rounded-2xl overflow-hidden border border-white/5 h-48">
+                                <img src="https://picsum.photos/seed/jaipur-campus1/400/300.jpg" alt="Campus" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden border border-white/5 h-64">
+                                <img src="https://picsum.photos/seed/it-lab-students/400/400.jpg" alt="IT Lab" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="rounded-2xl overflow-hidden border border-white/5 h-64">
+                                <img src="https://picsum.photos/seed/coding-class/400/400.jpg" alt="Classroom" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden border border-white/5 h-48">
+                                <img src="https://picsum.photos/seed/placement-event/400/300.jpg" alt="Placement" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating stat -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-neutral-900/90 backdrop-blur-xl border border-lime-400/20 rounded-2xl px-6 py-4 shadow-2xl">
+                        <div class="text-center">
+                            <div class="font-heading font-bold text-3xl gradient-text">10+</div>
+                            <div class="text-xs text-neutral-400 mt-1">Years of Excellence</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5">
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:info"></span>
+                        <span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">About Us</span>
+                    </div>
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tighter text-neutral-100">
+                        Transforming Education<br>
+                        <span class="gradient-text">Into Employment</span>
+                    </h2>
+                    <p class="text-neutral-400 leading-relaxed">
+                        <strong class="text-neutral-200">Jaipur IT College</strong>, located in the heart of Indira Gandhi Nagar, Jaipur, is a premier institution dedicated to vocational education in Information Technology. We bridge the gap between academic learning and industry requirements through our industry-integrated B.Voc programs.
+                    </p>
+                    <p class="text-neutral-400 leading-relaxed">
+                        Our curriculum is designed in collaboration with leading IT companies, ensuring that every student gains practical skills that employers actually need. With multiple exit points (Diploma after 1 year, Advanced Diploma after 2 years, Degree after 3 years), we offer flexibility unmatched by traditional programs.
+                    </p>
+
+                    <!-- Feature list -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-lime-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="iconify text-lime-400 text-sm" data-icon="lucide:check"></span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-neutral-200">Industry Curriculum</div>
+                                <div class="text-xs text-neutral-500 mt-0.5">Designed with IT companies</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-lime-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="iconify text-lime-400 text-sm" data-icon="lucide:check"></span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-neutral-200">Live Projects</div>
+                                <div class="text-xs text-neutral-500 mt-0.5">Real client work from semester 1</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-lime-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="iconify text-lime-400 text-sm" data-icon="lucide:check"></span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-neutral-200">Expert Faculty</div>
+                                <div class="text-xs text-neutral-500 mt-0.5">Industry professionals as mentors</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-lime-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="iconify text-lime-400 text-sm" data-icon="lucide:check"></span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-neutral-200">Multiple Exit Points</div>
+                                <div class="text-xs text-neutral-500 mt-0.5">NSQF Levels 5, 6, 7</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section id="courses" class="relative py-24">
+        <!-- Background glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-lime-900/10 rounded-full blur-[120px]"></div>
+
+        <div class="relative max-w-[80rem] mx-auto px-6">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+                    <span class="iconify text-lime-400 text-sm" data-icon="lucide:book-open"></span>
+                    <span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Our Programs</span>
+                </div>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tighter text-neutral-100 mb-4">
+                    B.Voc Programs <span class="gradient-text">Offered</span>
+                </h2>
+                <p class="text-neutral-400">Choose from our industry-aligned vocational programs. Each includes 40% practical training and industry internship.</p>
+            </div>
+
+            <!-- Course Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Course 1 -->
+                <div class="card-hover group bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-lime-400/20">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/software-dev-code/400/250.jpg" alt="Software Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-lime-400/10 border border-lime-400/20 text-[10px] font-medium text-lime-400 uppercase tracking-wider">Popular</div>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="iconify text-lime-400" data-icon="lucide:code-2"></span>
+                            <h3 class="font-heading font-semibold text-neutral-100">Software Development</h3>
+                        </div>
+                        <p class="text-xs text-neutral-500 leading-relaxed">Master programming languages, frameworks, and software engineering principles with hands-on projects.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Java</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Python</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">React</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Node.js</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-white/5">
+                            <span class="text-xs text-neutral-500">3 Years • 6 Sem</span>
+                            <a href="#contact" class="text-xs text-lime-400 font-medium hover:text-lime-300 flex items-center gap-1 transition-colors">
+                                Apply <span class="iconify text-xs" data-icon="lucide:arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="card-hover group bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-lime-400/20">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/data-science-analytics/400/250.jpg" alt="Data Science" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="iconify text-blue-400" data-icon="lucide:database"></span>
+                            <h3 class="font-heading font-semibold text-neutral-100">Data Science & Analytics</h3>
+                        </div>
+                        <p class="text-xs text-neutral-500 leading-relaxed">Learn data analysis, machine learning, and visualization tools to become a data-driven professional.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Python</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">SQL</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Tableau</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">ML</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-white/5">
+                            <span class="text-xs text-neutral-500">3 Years • 6 Sem</span>
+                            <a href="#contact" class="text-xs text-lime-400 font-medium hover:text-lime-300 flex items-center gap-1 transition-colors">
+                                Apply <span class="iconify text-xs" data-icon="lucide:arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="card-hover group bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-lime-400/20">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/cyber-security-lock/400/250.jpg" alt="Cyber Security" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-red-400/10 border border-red-400/20 text-[10px] font-medium text-red-400 uppercase tracking-wider">High Demand</div>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="iconify text-purple-400" data-icon="lucide:shield-check"></span>
+                            <h3 class="font-heading font-semibold text-neutral-100">Cyber Security</h3>
+                        </div>
+                        <p class="text-xs text-neutral-500 leading-relaxed">Protect digital assets with ethical hacking, network security, and threat analysis skills.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Ethical Hacking</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">SIEM</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Networking</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-white/5">
+                            <span class="text-xs text-neutral-500">3 Years • 6 Sem</span>
+                            <a href="#contact" class="text-xs text-lime-400 font-medium hover:text-lime-300 flex items-center gap-1 transition-colors">
+                                Apply <span class="iconify text-xs" data-icon="lucide:arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="card-hover group bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-lime-400/20">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/web-mobile-design/400/250.jpg" alt="Web & Mobile" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="iconify text-orange-400" data-icon="lucide:monitor-smartphone"></span>
+                            <h3 class="font-heading font-semibold text-neutral-100">Web & Mobile Dev</h3>
+                        </div>
+                        <p class="text-xs text-neutral-500 leading-relaxed">Build responsive websites and cross-platform mobile apps using modern frameworks and tools.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">HTML/CSS</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">React</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Flutter</span>
+                            <span class="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-neutral-500">Firebase</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-white/5">
+                            <span class="text-xs text-neutral-500">3 Years • 6 Sem</span>
+                            <a href="#contact" class="text-xs text-lime-400 font-medium hover:text-lime-300 flex items-center gap-1 transition-colors">
+                                Apply <span class="iconify text-xs" data-icon="lucide:arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B.Voc Structure -->
+            <div class="mt-16 bg-neutral-900/30 border border-white/5 rounded-2xl p-8">
+                <h3 class="font-heading font-semibold text-xl text-neutral-100 mb-6 text-center">B.Voc Program Structure — Multiple Exit Points</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+                        <div class="w-14 h-14 rounded-full bg-lime-400/10 flex items-center justify-center mx-auto mb-4">
+                            <span class="font-heading font-bold text-lime-400 text-lg">1 yr</span>
+                        </div>
+                        <div class="font-heading font-semibold text-neutral-200 mb-1">Diploma</div>
+                        <div class="text-xs text-neutral-500">NSQF Level 5</div>
+                        <div class="text-xs text-neutral-600 mt-2">Exit after Year 1 with a Diploma</div>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+                        <div class="w-14 h-14 rounded-full bg-lime-400/10 flex items-center justify-center mx-auto mb-4">
+                            <span class="font-heading font-bold text-lime-400 text-lg">2 yr</span>
+                        </div>
+                        <div class="font-heading font-semibold text-neutral-200 mb-1">Advanced Diploma</div>
+                        <div class="text-xs text-neutral-500">NSQF Level 6</div>
+                        <div class="text-xs text-neutral-600 mt-2">Exit after Year 2 with Advanced Diploma</div>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-lime-400/5 border border-lime-400/20">
+                        <div class="w-14 h-14 rounded-full bg-lime-400/20 flex items-center justify-center mx-auto mb-4">
+                            <span class="font-heading font-bold text-lime-400 text-lg">3 yr</span>
+                        </div>
+                        <div class="font-heading font-semibold text-neutral-100 mb-1">B.Voc Degree</div>
+                        <div class="text-xs text-lime-400/70">NSQF Level 7</div>
+                        <div class="text-xs text-neutral-500 mt-2">Complete B.Voc Bachelor's Degree</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="relative py-24 border-y border-white/5">
+        <div class="max-w-[80rem] mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+                    <span class="iconify text-lime-400 text-sm" data-icon="lucide:sparkles"></span>
+                    <span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Why Choose Us</span>
+                </div>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tighter text-neutral-100 mb-4">
+                    What Makes Us <span class="gradient-text">Different</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="card-hover group p-6 rounded-2xl bg-neutral-900/30 border border-white/5 hover:border-lime-400/20">
+                    <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4 group-hover:bg-lime-400/20 transition-colors">
+                        <span class="iconify text-lime-400 text-2xl" data-icon="lucide:laptop"></span>
+                    </div>
+                    <h3 class="font-heading font-semibold text-neutral-100 mb-2">Modern Computer Labs</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">State-of-the-art computer labs with latest hardware, high-speed internet, and licensed software tools.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="card-hover group p-6 rounded-2xl bg-neutral-900/30 border border-white/5 hover:border-lime-400/20">
+                    <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4 group-hover:bg-lime-400/20 transition-colors">
+                        <span class="iconify text-lime-400 text-2xl" data-icon="lucide:briefcase"></span>
+                    </div>
+                    <h3 class="font-heading font-semibold text-neutral-100 mb-2">Industry Internships</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">Mandatory industry internships each semester with Jaipur's top IT companies for real-world exposure.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="card-hover group p-6 rounded-2xl bg-neutral-900/30 border border-white/5 hover:border-lime-400/20">
+                    <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4 group-hover:bg-lime-400/20 transition-colors">
+                        <span class="iconify text-lime-400 text-2xl" data-icon="lucide:users"></span>
+                    </div>
+                    <h3 class="font-heading font-semibold text-neutral-100 mb-2">Small Batch Sizes</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">Maximum 30 students per batch ensures personalized attention and better learning outcomes.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="card-hover group p-6 rounded-2xl bg-neutral-900/30 border border-white/5 hover:border-lime-400/20">
+                    <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4 group-hover:bg-lime-400/20 transition-colors">
+                        <span class="iconify text-lime-400 text-2xl" data-icon="lucide:award"></span>
+                    </div>
+                    <h3 class="font-heading font-semibold text-neutral-100 mb-2">Certifications Included</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">Free industry certifications like AWS, Google Cloud, Microsoft Azure alongside your degree.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="card-hover group p-6 rounded-2xl bg-neutral-900/30 border border-white/5 hover:border-lime-400/20">
+                    <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4 group-hover:bg-lime-400/20 transition-colors">
+                        <span class="iconify text-lime-400 text-2xl" data-icon="lucide:message-circle"></span>
+                    </div>
+                    <h3 class="font-heading font-semibold text-neutral-100 mb-2">Soft Skills Training</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">Regular communication, personality development, and interview preparation sessions.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="card-hover group p-6 rounded-2xl bg-neutral-900/30 border border-white/5 hover:border-lime-400/20">
+                    <div class="w-12 h-12 rounded-xl bg-lime-400/10 flex items-center justify-center mb-4 group-hover:bg-lime-400/20 transition-colors">
+                        <span class="iconify text-lime-400 text-2xl" data-icon="lucide:map-pin"></span>
+                    </div>
+                    <h3 class="font-heading font-semibold text-neutral-100 mb-2">Prime Location</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">Located in Indira Gandhi Nagar — Jaipur's IT hub — surrounded by tech companies and startups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLACEMENTS SECTION -->
+    <section id="placements" class="relative py-24 overflow-hidden">
+        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-lime-900/10 rounded-full blur-[120px] -translate-y-1/2"></div>
+
+        <div class="relative max-w-[80rem] mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+                    <span class="iconify text-lime-400 text-sm" data-icon="lucide:trending-up"></span>
+                    <span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Placements</span>
+                </div>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tighter text-neutral-100 mb-4">
+                    Our Placement <span class="gradient-text">Record</span>
+                </h2>
+                <p class="text-neutral-400">Our students are placed across top companies in Jaipur and beyond with competitive salary packages.</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="text-center p-8 rounded-2xl bg-neutral-900/50 border border-white/5">
+                    <div class="font-heading font-bold text-4xl sm:text-5xl gradient-text counter" data-target="95">0</div>
+                    <div class="text-sm text-neutral-500 mt-2">% Placement Rate</div>
+                </div>
+                <div class="text-center p-8 rounded-2xl bg-neutral-900/50 border border-white/5">
+                    <div class="font-heading font-bold text-4xl sm:text-5xl text-neutral-100">₹<span class="counter" data-target="8">0</span>L</div>
+                    <div class="text-sm text-neutral-500 mt-2">Highest Package</div>
+                </div>
+                <div class="text-center p-8 rounded-2xl bg-neutral-900/50 border border-white/5">
+                    <div class="font-heading font-bold text-4xl sm:text-5xl text-neutral-100">₹<span class="counter" data-target="3">0</span>.5L</div>
+                    <div class="text-sm text-neutral-500 mt-2">Average Package</div>
+                </div>
+                <div class="text-center p-8 rounded-2xl bg-neutral-900/50 border border-white/5">
+                    <div class="font-heading font-bold text-4xl sm:text-5xl text-neutral-100 counter" data-target="50">0</span>+</div>
+                    <div class="text-sm text-neutral-500 mt-2">Hiring Partners</div>
+                </div>
+            </div>
+
+            <!-- Recruiting Companies -->
+            <div class="bg-neutral-900/30 border border-white/5 rounded-2xl p-8">
+                <h3 class="text-center font-heading font-semibold text-lg text-neutral-300 mb-8">Our Recruiting Partners</h3>
+                <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 items-center">
+                    <div class="flex items-center justify-center h-16 rounded-xl bg-white/[0.02] border border-white/5 hover:border-lime-400/20 transition-colors px-4">
+                        <span class="text-neutral-600 font-heading font-semibold text-sm">TCS</span>
+                    </div>
+                    <div class="flex items-center justify-center h-16 rounded-xl bg-white/[0.02] border border-white/5 hover:border-lime-400/20 transition-colors px-4">
+                        <span class="text-neutral-600 font-heading font-semibold text-sm">Infosys</span>
+                    </div>
+                    <div class="flex items-center justify-center h-16 rounded-xl bg-white/[0.02] border border-white/5 hover:border-lime-400/20 transition-colors px-4">
+                        <span class="text-neutral-600 font-heading font-semibold text-sm">Wipro</span>
+                    </div>
+                    <div class="flex items-center justify-center h-16 rounded-xl bg-white/[0.02] border border-white/5 hover:border-lime-400/20 transition-colors px-4">
+                        <span class="text-neutral-600 font-heading font-semibold text-sm">HCL</span>
+                    </div>
+                    <div class="flex items-center justify-center h-16 rounded-xl bg-white/[0.02] border border-white/5 hover:border-lime-400/20 transition-colors px-4">
+                        <span class="text-neutral-600 font-heading font-semibold text-sm">TechM</span>
+                    </div>
+                    <div class="flex items-center justify-center h-16 rounded-xl bg-white/[0.02] border border-white/5 hover:border-lime-400/20 transition-colors px-4">
+                        <span class="text-neutral-600 font-heading font-semibold text-xs">Infosphere</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="relative py-24 border-t border-white/5">
+        <div class="max-w-[80rem] mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+                    <span class="iconify text-lime-400 text-sm" data-icon="lucide:quote"></span>
+                    <span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Testimonials</span>
+                </div>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tighter text-neutral-100 mb-4">
+                    What Students <span class="gradient-text">Say</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="card-hover p-6 rounded-2xl bg-neutral-900/30 border border-white/5">
+                    <div class="flex gap-1 mb-4">
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                    </div>
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-6">"Jaipur IT College changed my life. The practical approach to learning helped me land a job at TCS even before completing my degree. The faculty is incredibly supportive."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-lime-400/20 to-green-400/10 flex items-center justify-center">
+                            <span class="font-heading font-semibold text-lime-400 text-sm">RK</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-neutral-200">Rahul Kumar</div>
+                            <div class="text-xs text-neutral-500">B.Voc Software Dev • Placed at TCS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="card-hover p-6 rounded-2xl bg-neutral-900/30 border border-white/5">
+                    <div class="flex gap-1 mb-4">
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                    </div>
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-6">"I was confused about my career after 12th. The B.Voc Data Science program here gave me clarity, skills, and confidence. Got placed at a Jaipur startup with a great package!"</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/10 flex items-center justify-center">
+                            <span class="font-heading font-semibold text-blue-400 text-sm">PS</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-neutral-200">Priya Sharma</div>
+                            <div class="text-xs text-neutral-500">B.Voc Data Science • Placed at Startup</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="card-hover p-6 rounded-2xl bg-neutral-900/30 border border-white/5">
+                    <div class="flex gap-1 mb-4">
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400 text-sm" data-icon="lucide:star"></span>
+                        <span class="iconify text-lime-400/50 text-sm" data-icon="lucide:star"></span>
+                    </div>
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-6">"The Cyber Security course is top-notch. We got to work on real penetration testing projects. The industry mentors from Infosphere made all the difference."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400/20 to-pink-400/10 flex items-center justify-center">
+                            <span class="font-heading font-semibold text-purple-400 text-sm">AJ</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-neutral-200">Amit Jain</div>
+                            <div class="text-xs text-neutral-500">B.Voc Cyber Security • Placed at Wipro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="relative py-24 border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+                    <span class="iconify text-lime-400 text-sm" data-icon="lucide:help-circle"></span>
+                    <span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">FAQs</span>
+                </div>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tighter text-neutral-100">
+                    Frequently Asked <span class="gradient-text">Questions</span>
+                </h2>
+            </div>
+
+            <div class="space-y-3" id="faqContainer">
+                <div class="faq-item border border-white/5 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-medium text-neutral-200">What is B.Voc and how is it different from B.Tech/B.CA?</span>
+                        <span class="iconify text-neutral-500 text-lg shrink-0 ml-4 transition-transform duration-300" data-icon="lucide:chevron-down"></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <p class="px-5 pb-5 text-sm text-neutral-500 leading-relaxed">B.Voc (Bachelor of Vocation) is a 3-year undergraduate degree focused on skill-based education. Unlike B.Tech or BCA which are more theory-heavy, B.Voc includes 40-60% practical training, industry internships, and follows NSQF levels. It offers multiple exit points with a Diploma after 1 year and Advanced Diploma after 2 years.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-white/5 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-medium text-neutral-200">What is the eligibility criteria for admission?</span>
+                        <span class="iconify text-neutral-500 text-lg shrink-0 ml-4 transition-transform duration-300" data-icon="lucide:chevron-down"></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <p class="px-5 pb-5 text-sm text-neutral-500 leading-relaxed">Students who have completed their 10+2 (any stream) from a recognized board are eligible for admission to B.Voc programs. There is no entrance exam — admissions are based on merit and a personal interview.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-white/5 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-medium text-neutral-200">Is B.Voc degree recognized for government jobs?</span>
+                        <span class="iconify text-neutral-500 text-lg shrink-0 ml-4 transition-transform duration-300" data-icon="lucide:chevron-down"></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <p class="px-5 pb-5 text-sm text-neutral-500 leading-relaxed">Yes! B.Voc is a UGC-recognized degree equivalent to any other bachelor's degree. Graduates are eligible for all government jobs, higher education (MBA, MCA, M.Tech), and competitive examinations.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-white/5 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-medium text-neutral-200">What is the fee structure?</span>
+                        <span class="iconify text-neutral-500 text-lg shrink-0 ml-4 transition-transform duration-300" data-icon="lucide:chevron-down"></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <p class="px-5 pb-5 text-sm text-neutral-500 leading-relaxed">Our fee structure is very affordable compared to private engineering colleges. We also offer EMI options, scholarship schemes for meritorious students, and special discounts for early admissions. Contact us at 9166720175 for detailed fee information.</p>
+                    </div>
+                </div>
+                <div class="faq-item border border-white/5 rounded-xl overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors" onclick="toggleFaq(this)">
+                        <span class="text-sm font-medium text-neutral-200">Can I pursue higher education after B.Voc?</span>
+                        <span class="iconify text-neutral-500 text-lg shrink-0 ml-4 transition-transform duration-300" data-icon="lucide:chevron-down"></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <p class="px-5 pb-5 text-sm text-neutral-500 leading-relaxed">Absolutely. B.Voc graduates can pursue M.Voc, MBA, MCA, M.Tech, or any other master's program. Several of our alumni have successfully completed post-graduation from reputed universities across India.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="relative py-24 border-t border-white/5 overflow-hidden">
+        <div class="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-lime-900/10 rounded-full blur-[120px]"></div>
+
+        <div class="relative max-w-[80rem] mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+                    <span class="iconify text-lime-400 text-sm" data-icon="lucide:mail"></span>
+                    <span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Contact Us</span>
+                </div>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tighter text-neutral-100 mb-4">
+                    Start Your <span class="gradient-text">Journey</span> Today
+                </h2>
+                <p class="text-neutral-400">Visit us or fill the form below. Our counsellors will guide you through the admission process.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Address Card -->
+                    <div class="p-6 rounded-2xl bg-neutral-900/50 border border-white/5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-lime-400/10 flex items-center justify-center shrink-0">
+                                <span class="iconify text-lime-400" data-icon="lucide:map-pin"></span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-neutral-200 mb-1">Campus Address</div>
+                                <p class="text-xs text-neutral-500 leading-relaxed">7-H-34, Indira Gandhi Nagar,<br>Jaipur, Rajasthan, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Phone Card -->
+                    <div class="p-6 rounded-2xl bg-neutral-900/50 border border-white/5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-lime-400/10 flex items-center justify-center shrink-0">
+                                <span class="iconify text-lime-400" data-icon="lucide:phone"></span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-neutral-200 mb-1">Phone / WhatsApp</div>
+                                <a href="tel:9166720175" class="text-xs text-lime-400 hover:text-lime-300 transition-colors">+91 9166720175</a>
+                                <p class="text-xs text-neutral-600 mt-1">Mon-Sat: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Email Card -->
+                    <div class="p-6 rounded-2xl bg-neutral-900/50 border border-white/5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-lime-400/10 flex items-center justify-center shrink-0">
+                                <span class="iconify text-lime-400" data-icon="lucide:mail"></span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-neutral-200 mb-1">Email</div>
+                                <a href="mailto:info@jaipuritcollege.com" class="text-xs text-lime-400 hover:text-lime-300 transition-colors">info@jaipuritcollege.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- WhatsApp CTA -->
+                    <a href="https://wa.me/919166720175?text=Hi%2C%20I%20want%20to%20know%20about%20B.Voc%20admissions%20at%20Jaipur%20IT%20College" target="_blank" class="group flex items-center gap-3 p-4 rounded-xl bg-green-600/10 border border-green-500/20 hover:bg-green-600/20 transition-all">
+                        <span class="iconify text-green-400 text-2xl" data-icon="lucide:message-circle"></span>
+                        <div>
+                            <div class="text-sm font-medium text-green-300">Chat on WhatsApp</div>
+                            <div class="text-xs text-green-500/60">Quick response guaranteed</div>
+                        </div>
+                        <span class="iconify text-green-400 ml-auto group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+                    </a>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3">
+                    <form id="contactForm" class="p-8 rounded-2xl bg-neutral-900/50 border border-white/5 space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-medium text-neutral-400 mb-2">Full Name *</label>
+                                <input type="text" id="formName" required placeholder="Your full name" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-lime-400/30 focus:bg-lime-400/5 transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-neutral-400 mb-2">Phone Number *</label>
+                                <input type="tel" id="formPhone" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-lime-400/30 focus:bg-lime-400/5 transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-neutral-400 mb-2">Email Address</label>
+                            <input type="email" id="formEmail" placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-lime-400/30 focus:bg-lime-400/5 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-neutral-400 mb-2">Interested Course *</label>
+                            <select id="formCourse" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-neutral-200 focus:outline-none focus:border-lime-400/30 focus:bg-lime-400/5 transition-all appearance-none" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23737373%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
+                                <option value="" class="bg-neutral-900">Select a course</option>
+                                <option value="software-dev" class="bg-neutral-900">B.Voc Software Development</option>
+                                <option value="data-science" class="bg-neutral-900">B.Voc Data Science & Analytics</option>
+                                <option value="cyber-security" class="bg-neutral-900">B.Voc Cyber Security</option>
+                                <option value="web-mobile" class="bg-neutral-900">B.Voc Web & Mobile Development</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-neutral-400 mb-2">Message</label>
+                            <textarea id="formMessage" rows="4" placeholder="Any questions about admissions, fee, or courses..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-lime-400/30 focus:bg-lime-400/5 transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full sm:w-auto group inline-flex items-center justify-center gap-2 bg-neutral-100 text-neutral-900 text-sm font-medium px-8 py-3.5 rounded-xl hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all duration-300">
+                            Submit Enquiry
+                            <span class="iconify text-sm group-hover:translate-x-1 transition-transform" data-icon="lucide:send"></span>
+                        </button>
+                        <div id="formMsg" class="hidden text-sm text-lime-400 mt-2 flex items-center gap-2">
+                            <span class="iconify" data-icon="lucide:check-circle"></span>
+                            <span>Thank you! We'll contact you within 24 hours.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="mt-12 rounded-2xl overflow-hidden border border-white/5 h-72">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.5!2d75.7871!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sIndira%20Gandhi%20Nagar%2C%20Jaipur!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.9) contrast(1.1);" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-lime-900/20 via-green-900/10 to-lime-900/20"></div>
+        <div class="absolute inset-0 tron-grid opacity-20"></div>
+        <div class="relative max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl tracking-tighter text-neutral-100 mb-4">
+                Admissions Are <span class="gradient-text">Open Now!</span>
+            </h2>
+            <p class="text-neutral-400 mb-8 max-w-xl mx-auto">Limited seats available for 2025-26 batch. Don't miss the opportunity to kickstart your IT career with Jaipur IT College.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:9166720175" class="group inline-flex items-center gap-2 bg-neutral-100 text-neutral-900 text-sm font-medium px-8 py-4 rounded-xl hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all duration-300">
+                    <span class="iconify" data-icon="lucide:phone"></span>
+                    Call 9166720175
+                </a>
+                <a href="https://wa.me/9166720175?text=Hi%2C%20I%20want%20to%20apply%20for%20B.Voc%20at%20Jaipur%20IT%20College" target="_blank" class="group inline-flex items-center gap-2 border border-green-500/30 bg-green-500/5 text-green-300 text-sm font-medium px-8 py-4 rounded-xl hover:bg-green-500/10 transition-all duration-300">
+                    <span class="iconify" data-icon="lucide:message-circle"></span>
+                    WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-[80rem] mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-lime-400/10 border border-lime-400/30 flex items-center justify-center">
+                            <span class="iconify text-lime-400 text-lg" data-icon="lucide:graduation-cap"></span>
+                        </div>
+                        <span class="font-heading font-semibold text-neutral-100">Jaipur IT College</span>
+                    </div>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Premier B.Voc college in Jaipur offering industry-aligned IT programs with guaranteed placement support.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-neutral-500 hover:text-lime-400 hover:border-lime-400/30 transition-all">
+                            <span class="iconify text-sm" data-icon="lucide:facebook"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-neutral-500 hover:text-lime-400 hover:border-lime-400/30 transition-all">
+                            <span class="iconify text-sm" data-icon="lucide:instagram"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-neutral-500 hover:text-lime-400 hover:border-lime-400/30 transition-all">
+                            <span class="iconify text-sm" data-icon="lucide:youtube"></span>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-neutral-500 hover:text-lime-400 hover:border-lime-400/30 transition-all">
+                            <span class="iconify text-sm" data-icon="lucide:linkedin"></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-semibold text-sm text-neutral-200 mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#about" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">About College</a></li>
+                        <li><a href="#courses" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">B.Voc Programs</a></li>
+                        <li><a href="#placements" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">Placement Records</a></li>
+                        <li><a href="#testimonials" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">Student Reviews</a></li>
+                        <li><a href="#contact" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Courses -->
+                <div>
+                    <h4 class="font-heading font-semibold text-sm text-neutral-200 mb-4">Courses</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#courses" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">Software Development</a></li>
+                        <li><a href="#courses" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">Data Science & Analytics</a></li>
+                        <li><a href="#courses" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">Cyber Security</a></li>
+                        <li><a href="#courses" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">Web & Mobile Development</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-heading font-semibold text-sm text-neutral-200 mb-4">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="iconify text-neutral-600 text-sm mt-0.5" data-icon="lucide:map-pin"></span>
+                            <span class="text-xs text-neutral-500">7-H-34, Indira Gandhi Nagar, Jaipur</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="iconify text-neutral-600 text-sm" data-icon="lucide:phone"></span>
+                            <a href="tel:9166720175" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">+91 9166720175</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="iconify text-neutral-600 text-sm" data-icon="lucide:mail"></span>
+                            <a href="mailto:info@jaipuritcollege.com" class="text-xs text-neutral-500 hover:text-lime-400 transition-colors">info@jaipuritcollege.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="iconify text-neutral-600 text-sm" data-icon="lucide:clock"></span>
+                            <span class="text-xs text-neutral-500">Mon-Sat: 9 AM - 6 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-neutral-600">© 2025 Jaipur IT College. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-xl bg-neutral-800/90 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-lime-400 hover:border-lime-400/30 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none shadow-xl" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <span class="iconify text-lg" data-icon="lucide:chevron-up"></span>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open');
+            menuIcon.setAttribute('data-icon', menuOpen ? 'lucide:x' : 'lucide:menu');
+        });
+
+        function closeMobile() {
+            menuOpen = false;
+            mobileMenu.classList.remove('open');
+            menuIcon.setAttribute('data-icon', 'lucide:menu');
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10,10,10,0.95)';
+                navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+            } else {
+                navbar.style.background = 'rgba(10,10,10,0.8)';
+                navbar.style.borderBottom = 'none';
+            }
+        });
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.transform = 'translateY(0)';
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.transform = 'translateY(1rem)';
+                backToTop.style.pointerEvents = 'none';
+            }
+        });
+
+        // FAQ toggle
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const content = item.querySelector('.faq-content');
+            const icon = btn.querySelector('.iconify');
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+            // Close all
+            document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+            document.querySelectorAll('.faq-toggle .iconify').forEach(i => i.style.transform = 'rotate(0deg)');
+            document.querySelectorAll('.faq-item').forEach(i => i.style.borderColor = 'rgba(255,255,255,0.05)');
+
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+                item.style.borderColor = 'rgba(163,230,53,0.2)';
+            }
+        }
+
+        // Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('formName').value;
+            const phone = document.getElementById('formPhone').value;
+            const course = document.getElementById('formCourse').value;
+
+            if (!name || !phone || !course) return;
+
+            // Show success message
+            const formMsg = document.getElementById('formMsg');
+            formMsg.classList.remove('hidden');
+            formMsg.style.animation = 'fadeIn 0.5s ease forwards';
+
+            // Show toast
+            showToast(`Thank you ${name}! We'll contact you soon.`);
+
+            // Reset form
+            this.reset();
+
+            // Hide success message after 5s
+            setTimeout(() => {
+                formMsg.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Counter animation with Intersection Observer
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = Math.floor(current);
+                    }, 25);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // Scroll-triggered fade-in for sections
+        const sections = document.querySelectorAll('section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            if (section.id !== '' || section.querySelector('.tron-grid') === null) {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                sectionObserver.observe(section);
+            }
+        });
+
+        // Hero section always visible
+        document.querySelector('section').style.opacity = '1';
+        document.querySelector('section').style.transform = 'translateY(0)';
+    </script>
+</body>
+</html>
